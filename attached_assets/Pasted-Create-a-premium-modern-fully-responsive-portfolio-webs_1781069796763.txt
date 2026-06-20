@@ -1,0 +1,477 @@
+Create a premium, modern, fully responsive portfolio website for Manohar Naidu Bugatha, an aspiring Full Stack Software Developer. The website should have a clean, elegant, minimal design with smooth animations, professional typography, and a strong focus on readability and user experience. The portfolio should feel like the personal website of a software engineer preparing for top product-based companies.
+
+Do not use placeholder text. Write professional content based on the information below.
+
+Personal Information
+Name
+
+Manohar Naidu Bugatha
+
+Professional Title
+
+Full Stack Developer | MERN Stack Developer | Java & DSA Enthusiast
+
+Location
+
+Maddi, Visakhapatnam, Andhra Pradesh, India
+
+Email
+
+manoharnaidubugatha@gmail.com
+
+Phone
+
++91 7207228389
+
+Include social icons for:
+
+LinkedIn
+
+GitHub
+
+LeetCode
+
+Home Page
+Create a professional hero section.
+
+Headline:
+
+Building scalable web applications with clean architecture and modern technologies.
+
+Subheading:
+
+I am a Computer Science undergraduate passionate about full-stack web development, backend engineering, and problem solving. I enjoy building responsive applications, designing REST APIs, and creating maintainable software using Java, React, Node.js, Express, and MongoDB.
+
+CTA Buttons:
+
+View Projects
+
+Download Resume
+
+Contact Me
+
+Display professional statistics:
+
+2+ Full Stack Projects
+
+100+ DSA Problems Solved
+
+MERN Stack Developer
+
+Computer Science Student
+
+Java Developer
+
+About Me
+Create a professional About page.
+
+Content should explain:
+
+I am currently pursuing a Bachelor of Technology in Computer Science Engineering at Mohan Babu University.
+
+I enjoy solving programming problems and developing real-world web applications.
+
+My interests include:
+
+Full Stack Development
+
+Backend Engineering
+
+REST API Development
+
+Database Design
+
+Authentication Systems
+
+Software Architecture
+
+Data Structures & Algorithms
+
+Mention that I continuously improve my development skills through projects and practical learning.
+
+Skills Page
+Organize skills into professional categories.
+
+Programming Languages
+Java
+
+JavaScript
+
+SQL
+
+Frontend
+HTML5
+
+CSS3
+
+Bootstrap
+
+Tailwind CSS
+
+EJS
+
+Backend
+Node.js
+
+Express.js
+
+REST APIs
+
+Passport Authentication
+
+Database
+MongoDB
+
+Mongoose
+
+Core Computer Science
+Data Structures
+
+Algorithms
+
+Object-Oriented Programming
+
+Time & Space Complexity
+
+Tools
+GitHub
+
+VS Code
+
+IntelliJ IDEA
+
+Projects Page
+Create professional project cards.
+
+Project 1
+NextStep — Engineering Career Navigator
+Overview
+
+A career guidance web application designed to help engineering students explore branch-specific career opportunities through an intuitive and interactive interface.
+
+Include sections:
+
+Problem
+
+Solution
+
+Features
+
+Reusable React Components
+
+Interactive Navigation
+
+Responsive Design
+
+Dynamic UI
+
+Component-Based Architecture
+
+Technology Stack
+
+React.js
+
+JavaScript
+
+CSS
+
+What I Learned
+
+Component Architecture
+
+State Management
+
+UI Design
+
+Reusable Components
+
+Buttons
+
+GitHub
+
+Live Demo
+
+Project 2
+Airbnb Clone
+Overview
+
+A full-stack web application inspired by Airbnb that allows users to create, manage, and browse property listings while implementing authentication and secure backend functionality.
+
+Sections:
+
+Problem
+
+Solution
+
+Features
+
+User Authentication
+
+Passport.js Authentication
+
+REST APIs
+
+CRUD Operations
+
+Responsive Design
+
+MVC Architecture
+
+Data Validation
+
+Error Handling
+
+Technology Stack
+
+Node.js
+
+Express.js
+
+MongoDB
+
+Mongoose
+
+EJS
+
+Bootstrap
+
+Architecture
+
+Explain MVC Architecture.
+
+Lessons Learned
+
+Backend Development
+
+Authentication
+
+Database Relationships
+
+Route Protection
+
+Error Handling
+
+Buttons
+
+GitHub
+
+Live Demo
+
+Experience
+Professional timeline.
+
+Frontend Developer Intern
+Eunoia MUN
+
+May 2025 – June 2025
+
+Responsibilities
+
+Developed responsive webpages using HTML, CSS, and JavaScript.
+
+Collaborated with the organizing team to implement UI improvements.
+
+Improved responsiveness across devices.
+
+Maintained clean and structured frontend code.
+
+Include an attractive timeline layout.
+
+Education
+Create elegant education cards.
+
+Mohan Babu University
+Bachelor of Technology
+
+Computer Science Engineering
+
+CGPA: 8.52
+
+2023–2027
+
+Srinivasa Junior College
+Intermediate
+
+Score: 93%
+
+2021–2023
+
+SSC
+State Board
+
+Score: 93.67%
+
+2020–2021
+
+Certifications
+Create certification cards.
+
+Full Stack Web Development
+Delta Program
+
+Apna College
+
+Ace Coding Interviews: DSA Mastery with Java
+ExcelR EdTech
+
+Development Process
+Show the following workflow.
+
+Requirement Analysis
+
+↓
+
+Planning
+
+↓
+
+Design
+
+↓
+
+Development
+
+↓
+
+Testing
+
+↓
+
+Deployment
+
+↓
+
+Maintenance
+
+Why Work With Me
+Display feature cards.
+
+Clean Code
+
+REST API Development
+
+Problem Solving
+
+Authentication Systems
+
+Responsive Design
+
+Database Design
+
+Scalable Architecture
+
+Continuous Learning
+
+Achievements
+Display cards.
+
+Solved 100+ DSA Problems
+
+Built Multiple Full Stack Applications
+
+MERN Stack Developer
+
+Java Programmer
+
+Computer Science Undergraduate
+
+Contact
+Create a professional contact page.
+
+Include:
+
+Email
+
+Phone
+
+Location
+
+GitHub
+
+LinkedIn
+
+LeetCode
+
+Professional Contact Form
+
+Name
+
+Email
+
+Subject
+
+Message
+
+Footer
+Include:
+
+Quick Links
+
+Projects
+
+Skills
+
+Experience
+
+Education
+
+GitHub
+
+LinkedIn
+
+LeetCode
+
+Email
+
+Copyright © 2026 Manohar Naidu Bugatha
+
+Design Requirements
+Modern and minimal UI
+
+Premium professional appearance
+
+Fully responsive for mobile, tablet, and desktop
+
+Smooth scrolling
+
+Scroll reveal animations
+
+Hover effects
+
+Dark mode support
+
+Excellent typography
+
+Clean spacing and alignment
+
+Semantic HTML
+
+SEO optimized
+
+Fast loading performance
+
+Accessibility best practices
+
+Modular, maintainable code
+
+Reusable React components
+
+Professional iconography
+
+Attractive project cards
+
+Elegant timeline sections
+
+Consistent color palette
+
+Sticky navigation with active section highlighting
+
+The overall impression should be of a motivated early-career software engineer with strong foundations in Java, DSA, and the MERN stack, showcasing technical ability, clean engineering practices, and readiness for internships and full-time software development roles.
+
+
+
+
+
+
+
+
