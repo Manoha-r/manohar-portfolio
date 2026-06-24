@@ -240,7 +240,7 @@ export function Skills() {
           <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white flex justify-center">
             <TextReveal text="Technical Skills" />
           </h2>
-          <p className="text-zinc-400 mt-3 text-base max-w-xl mx-auto">Every skill below is directly from my resume — technologies I've used to build real projects.</p>
+          <p className="text-zinc-400 mt-3 text-base max-w-xl mx-auto">Every skill below represents a technology I've used to build real-world projects.</p>
         </motion.div>
 
         <div className="space-y-12">

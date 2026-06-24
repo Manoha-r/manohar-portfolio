@@ -11,7 +11,6 @@ const links = [
   { href: "/skills", label: "Skills" },
   { href: "/experience", label: "Experience" },
   { href: "/contact", label: "Contact" },
-  { href: "/resume.pdf", label: "Resume", isExternal: true },
 ];
 
 export function Navigation() {
