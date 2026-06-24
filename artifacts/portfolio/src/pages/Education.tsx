@@ -235,7 +235,7 @@ export function Education() {
           {educationCards.map((edu, idx) => (
             <motion.div
               key={edu.institution}
-              className={`bg-black/65 border ${edu.border} rounded-3xl p-7 md:p-8`}
+              className={`bg-black/65 border ${edu.border} rounded-3xl p-5 sm:p-8`}
               initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.8 }}>
               <div className="flex flex-col md:flex-row gap-5 items-start">
                 <div className="p-4 bg-primary/10 rounded-2xl border border-primary/20 shrink-0">
@@ -304,7 +304,7 @@ export function Education() {
         </motion.div>
 
         <motion.div
-          className="p-8 rounded-3xl bg-primary/8 border border-primary/20 text-center"
+          className="p-5 sm:p-8 rounded-3xl bg-primary/8 border border-primary/20 text-center"
           initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
           <h3 className="text-xl font-extrabold text-white mb-3 flex justify-center"><TextReveal text="My Learning Philosophy" /></h3>
           <p className="text-zinc-400 max-w-2xl mx-auto text-sm leading-relaxed">

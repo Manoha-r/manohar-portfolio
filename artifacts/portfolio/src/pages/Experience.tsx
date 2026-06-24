@@ -187,7 +187,7 @@ export function Experience() {
           <p className="text-zinc-400 mt-3 text-base max-w-xl mx-auto">Real-world internship experience plus industry-recognized certifications.</p>
         </motion.div>
 
-        <motion.div className="bg-black/35 border-l-4 border-primary/70 border border-white/10 rounded-3xl p-8 md:p-10 mb-10"
+        <motion.div className="bg-black/35 border-l-4 border-primary/70 border border-white/10 rounded-3xl p-5 sm:p-8 md:p-10 mb-10"
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.9 }}>
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
             <div className="flex gap-4">
@@ -251,7 +251,7 @@ export function Experience() {
                 rel="noreferrer"
                 className="block group cursor-pointer"
               >
-                <motion.div className={`bg-black/30 border-l-4 ${cert.colorL} border border-white/8 group-hover:border-primary/40 rounded-2xl p-6 transition-all duration-300`}
+                <motion.div className={`bg-black/30 border-l-4 ${cert.colorL} border border-white/8 group-hover:border-primary/40 rounded-2xl p-4 sm:p-6 transition-all duration-300`}
                   initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.75 }} whileHover={{ scale: 1.01 }}>
                   <div className="flex flex-wrap items-start gap-3 mb-3">
                     <h4 className="text-white font-bold text-base flex-1 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -267,7 +267,7 @@ export function Experience() {
           </div>
         </motion.div>
 
-        <motion.div className="mt-12 p-8 rounded-3xl bg-black/30 border border-white/8 text-center"
+        <motion.div className="mt-12 p-5 sm:p-8 rounded-3xl bg-black/30 border border-white/8 text-center"
           initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85 }}>
           <h3 className="text-xl font-extrabold text-white mb-3">What I'm Looking For</h3>
           <p className="text-zinc-400 max-w-2xl mx-auto text-sm leading-relaxed">

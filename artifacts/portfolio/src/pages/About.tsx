@@ -225,7 +225,7 @@ export function About() {
 
       <section className="min-h-screen flex items-center justify-center pt-20 pb-10 px-4">
         <div className="max-w-3xl mx-auto w-full">
-          <motion.div className="bg-[#0b0b14]/85 rounded-3xl border border-white/10 p-8 md:p-12"
+          <motion.div className="bg-[#0b0b14]/85 rounded-3xl border border-white/10 p-5 sm:p-8 md:p-12"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.9 }}>
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Who I Am</p>
             <h2 className="text-4xl md:text-5xl font-extrabold mb-7 tracking-tight text-white leading-tight flex flex-col">
@@ -273,7 +273,7 @@ export function About() {
         <motion.div className="bg-[#0b0b14]/85 border border-white/8 rounded-3xl overflow-hidden"
             initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85 }}>
           {quickFacts.map((f, i) => (
-            <div key={f.label} className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 px-6 py-4 ${i !== quickFacts.length - 1 ? "border-b border-white/5" : ""}`}>
+            <div key={f.label} className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 px-4 sm:px-6 py-2.5 sm:py-4 ${i !== quickFacts.length - 1 ? "border-b border-white/5" : ""}`}>
               <span className="text-zinc-600 text-xs font-bold uppercase tracking-wider w-36 shrink-0">{f.label}</span>
               <span className="text-zinc-300 text-sm">{f.value}</span>
             </div>

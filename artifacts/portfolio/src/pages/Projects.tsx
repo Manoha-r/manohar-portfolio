@@ -202,16 +202,6 @@ const projects = [
 export function Projects() {
   const scrollRef = useSmoothScroll();
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1024);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const isMobile = windowWidth < 768;
-  const collapsedHeight = isMobile ? 480 : 440;
 
   const toggleExpand = (id: string) => {
     setExpandedCard(expandedCard === id ? null : id);
@@ -238,13 +228,11 @@ export function Projects() {
                 initial={{ opacity: 0, y: -50 }} 
                 whileInView={{ opacity: 1, y: 0 }} 
                 viewport={{ once: true }}
-                animate={{ height: isExpanded ? "auto" : collapsedHeight }}
                 transition={{ 
-                  height: { type: "spring", stiffness: 180, damping: 25 },
                   layout: { type: "spring", stiffness: 180, damping: 25 }
                 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className={`bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col overflow-hidden`}>
+                className={`bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col`}>
 
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">
@@ -294,13 +282,14 @@ export function Projects() {
                   )}
                 </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isExpanded && (
                     <motion.div 
-                      initial={{ opacity: 0 }} 
-                      animate={{ opacity: 1, transition: { delay: 0.15, duration: 0.3 } }} 
-                      exit={{ opacity: 0, transition: { duration: 0.2 } }}
-                      className="mt-4 pt-4 border-t border-white/10">
+                      initial={{ height: 0, opacity: 0 }} 
+                      animate={{ height: "auto", opacity: 1 }} 
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden mt-4 pt-4 border-t border-white/10">
                       <div className="space-y-4">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
