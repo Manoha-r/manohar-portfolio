@@ -51,7 +51,7 @@ function CameraController({ location, isIntroPlaying, onIntroComplete }: CameraC
   useFrame((state, delta) => {
     if (isIntroPlaying) {
       introTime.current += delta;
-      const duration = 3.5;
+      const duration = 1.0;
       const progress = Math.min(1, introTime.current / duration);
 
       // cubic easeOutCubic curve for camera acceleration/deceleration
@@ -158,7 +158,7 @@ function IntroCore({ elapsed }: { elapsed: number }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const explosionRef = useRef<THREE.Points>(null);
 
-  const explodeStart = 2.8;
+  const explodeStart = 0.75;
   const isExploding = elapsed > explodeStart;
   const explodeProgress = isExploding ? Math.min(1, (elapsed - explodeStart) / 0.7) : 0;
 
