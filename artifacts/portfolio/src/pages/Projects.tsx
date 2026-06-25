@@ -113,7 +113,7 @@ export function Projects() {
                   layout: { type: "spring", stiffness: 180, damping: 25 }
                 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className={`bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col`}>
+                className={`bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col transition-all duration-300 ${isExpanded ? "h-auto" : "h-[480px] md:h-[500px]"}`}>
 
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">

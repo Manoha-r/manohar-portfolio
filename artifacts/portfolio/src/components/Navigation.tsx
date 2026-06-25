@@ -4,7 +4,13 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-const links = [
+interface NavLink {
+  href: string;
+  label: string;
+  isExternal?: boolean;
+}
+
+const links: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
@@ -76,7 +82,7 @@ export function Navigation() {
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { type: "spring", stiffness: 260, damping: 24 } 
+      transition: { type: "spring" as const, stiffness: 260, damping: 24 } 
     },
     exit: { 
       opacity: 0, 

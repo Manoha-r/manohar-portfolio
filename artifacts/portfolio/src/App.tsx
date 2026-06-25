@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { Navigation } from "./components/Navigation";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Background3D } from "./components/Background3D";
+import Lenis from "lenis";
 
 import { Hero } from "./pages/Hero";
 import { About } from "./pages/About";
@@ -15,6 +16,29 @@ import { Contact } from "./pages/Contact";
 
 function App() {
   const [location] = useLocation();
+
+  // Initialize Lenis Smooth Scroll globally
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+    });
+
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
   const [isIntroPlaying, setIsIntroPlaying] = useState(() => {
     // Only play the cinematic 3D intro once per browser session
     return !sessionStorage.getItem("intro_played");
@@ -45,22 +69,22 @@ function App() {
   useEffect(() => {
     if (!isIntroPlaying) return;
 
-    // 1. At 750ms: Trigger the screen flash (crystal core explosion begins)
+    // 1. At 2350ms: Trigger the screen flash (crystal core explosion begins)
     const flashTimer = setTimeout(() => {
       setShowFlash(true);
-    }, 750);
+    }, 2350);
 
-    // 2. At 900ms: Reveal the HTML content with a radial motion blur and scale transition
+    // 2. At 2750ms: Reveal the HTML content with a radial motion blur and scale transition
     const contentTimer = setTimeout(() => {
       setShowContent(true);
       setShowFlash(false); // start fading out the flash
-    }, 900);
+    }, 2750);
 
-    // 3. At 1000ms: Complete the intro phase
+    // 3. At 3000ms: Complete the intro phase
     const endTimer = setTimeout(() => {
       setIsIntroPlaying(false);
       sessionStorage.setItem("intro_played", "true");
-    }, 1000);
+    }, 3000);
 
     return () => {
       clearTimeout(flashTimer);
@@ -87,7 +111,7 @@ function App() {
         {/* Blinding screen flash overlay during the 3D core explosion */}
         {isIntroPlaying && (
           <div
-            className={`fixed inset-0 z-50 pointer-events-none bg-gradient-to-r from-blue-600 via-white to-sky-400 mix-blend-screen transition-opacity duration-[200ms] ease-out ${showFlash ? "opacity-95" : "opacity-0"
+            className={`fixed inset-0 z-50 pointer-events-none bg-gradient-to-r from-blue-600 via-white to-sky-400 mix-blend-screen transition-opacity duration-[350ms] ease-out ${showFlash ? "opacity-95" : "opacity-0"
               }`}
           />
         )}
@@ -96,7 +120,7 @@ function App() {
         <div
           className={
             isIntroPlaying
-              ? `fixed top-0 left-0 w-full z-50 transition-all duration-[600ms] ${!showContent
+              ? `fixed top-0 left-0 w-full z-50 transition-all duration-[1000ms] ${!showContent
                   ? "opacity-0 -translate-y-4 blur-[10px] pointer-events-none"
                   : "opacity-100 translate-y-0 blur-0"
                 }`
@@ -111,7 +135,7 @@ function App() {
         <div
           className={
             isIntroPlaying
-              ? `transition-all duration-[600ms] ${!showContent
+              ? `transition-all duration-[1000ms] ${!showContent
                   ? "opacity-0 scale-[0.88] blur-[25px] pointer-events-none"
                   : "opacity-100 scale-100 blur-0"
                 }`

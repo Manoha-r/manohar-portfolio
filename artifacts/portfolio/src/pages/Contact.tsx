@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
-import { useFrame } from "@react-three/fiber";
-import { SafeCanvas } from "../components/SafeCanvas";
-import { OrbitControls, Stars, Sphere, Float } from "@react-three/drei";
-import { useRef, useMemo, useState } from "react";
+import { useState } from "react";
 import { useSmoothScroll } from "../hooks/useSmoothScroll";
-import * as THREE from "three";
 import { Linkedin, Mail, Send, Clock, MapPin, Phone, CheckCircle2 } from "lucide-react";
 import { SiGithub, SiLeetcode } from "react-icons/si";
 import { TextReveal } from "../components/TextReveal";
@@ -26,43 +22,7 @@ const pageVariants = {
   }
 };
 
-function WireframeGlobe() {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state, delta) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += delta * 0.1;
-      meshRef.current.rotation.x += delta * 0.05;
-    }
-  });
 
-  return (
-    <Float speed={1} rotationIntensity={0.2} floatIntensity={0.5}>
-      <Sphere ref={meshRef} args={[3, 32, 32]}>
-        <meshStandardMaterial 
-          color="#0a0a0f" 
-          wireframe 
-          emissive="#0071E3" 
-          emissiveIntensity={0.3} 
-          transparent
-          opacity={0.8}
-        />
-      </Sphere>
-    </Float>
-  );
-}
-
-export function ContactScene() {
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 10]} intensity={2} color="#0071E3" />
-      <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
-      <WireframeGlobe />
-      <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-    </>
-  );
-}
 
 const socials = [
   { label: "Email", handle: "manoharnaidubugatha@gmail.com", href: "mailto:manoharnaidubugatha@gmail.com", icon: <Mail className="w-5 h-5" />, color: "hover:border-red-500/50", iconBg: "bg-red-500/10 text-red-400", desc: "Best way to reach me." },
