@@ -100,7 +100,7 @@ export function Projects() {
           <p className="text-zinc-400 mt-3 text-base max-w-xl mx-auto">Real products, real problems solved — React career tools and full-stack MERN applications.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {projects.map((p, idx) => {
             const isExpanded = !!expandedCards[p.id];
             return (
