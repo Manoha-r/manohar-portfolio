@@ -57,7 +57,7 @@ router.post("/contact", async (req: Request, res: Response) => {
     res.status(200).json({ success: true, message: "Email sent successfully" });
   } catch (error) {
     console.error("Mail sending error:", error);
-    res.status(500).json({ error: "Failed to send email" });
+    res.status(500).json({ error: "Failed to send email", details: error instanceof Error ? error.message : String(error) });
   }
 });
 
