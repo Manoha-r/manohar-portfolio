@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useSmoothScroll } from "../hooks/useSmoothScroll";
-import { Linkedin, Mail, Send, Clock, MapPin, Phone, CheckCircle2 } from "lucide-react";
+import { Linkedin, Mail, Clock, MapPin, Phone, CheckCircle2 } from "lucide-react";
 import { SiGithub, SiLeetcode } from "react-icons/si";
 import { TextReveal } from "../components/TextReveal";
 
@@ -50,42 +49,6 @@ const faqs = [
 
 export function Contact() {
   const scrollRef = useSmoothScroll();
-  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [emailError, setEmailError] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setEmailError(null);
-
-    if (!formData.email.toLowerCase().endsWith("@gmail.com")) {
-      setEmailError("Only Gmail addresses are allowed (ending in @gmail.com)");
-      return;
-    }
-
-    setFormStatus("submitting");
-
-    try {
-      const apiBase = import.meta.env.VITE_API_URL || "";
-      const response = await fetch(`${apiBase}/api/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to send message");
-      }
-
-      setFormStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
-      console.error("Error submitting contact form:", error);
-      setFormStatus("error");
-    }
-  };
 
   return (
     <motion.div ref={scrollRef} className="relative w-full min-h-screen overflow-y-auto" variants={pageVariants} initial="initial" animate="animate" exit="exit">
@@ -118,77 +81,6 @@ export function Contact() {
               </motion.a>
             ))}
           </div>
-
-          <form onSubmit={handleSubmit} className="space-y-4 p-7 rounded-3xl bg-[#08090e]/92 border border-white/10 hover:border-primary/20 transition-colors">
-            <h3 className="text-white font-extrabold text-lg mb-4"><TextReveal text="Send a Message" /></h3>
-            
-            {formStatus === "success" ? (
-              <motion.div className="flex flex-col items-center justify-center py-8 text-center"
-                initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
-                <CheckCircle2 className="w-16 h-16 text-green-400 mb-4" />
-                <h4 className="text-white font-bold text-lg mb-1">Message Sent Successfully!</h4>
-                <p className="text-zinc-400 text-sm max-w-sm">Thank you for reaching out. I'll get back to you within 24 hours.</p>
-                <button type="button" onClick={() => setFormStatus("idle")} className="mt-6 text-primary hover:underline text-sm font-bold">
-                  Send another message
-                </button>
-              </motion.div>
-            ) : formStatus === "error" ? (
-              <motion.div className="flex flex-col items-center justify-center py-8 text-center"
-                initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
-                <div className="w-16 h-16 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center mb-4">
-                  <Send className="w-8 h-8 rotate-45" />
-                </div>
-                <h4 className="text-white font-bold text-lg mb-1">Failed to Send Message</h4>
-                <p className="text-zinc-400 text-sm max-w-sm">Something went wrong. Please check your network connection and try again.</p>
-                <button type="button" onClick={() => setFormStatus("idle")} className="mt-6 text-primary hover:underline text-sm font-bold">
-                  Try Again
-                </button>
-              </motion.div>
-            ) : (
-              <>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label htmlFor="name" className="text-zinc-400 text-xs font-bold uppercase tracking-wider">Your Name</label>
-                    <input type="text" id="name" required value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:border-primary focus:outline-none transition-all placeholder:text-zinc-600" />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label htmlFor="email" className="text-zinc-400 text-xs font-bold uppercase tracking-wider">Your Email</label>
-                    <input type="email" id="email" required value={formData.email}
-                      onChange={(e) => {
-                        setEmailError(null);
-                        setFormData({ ...formData, email: e.target.value });
-                      }}
-                      placeholder="john@gmail.com"
-                      className={`w-full px-4 py-3 bg-white/5 border ${emailError ? "border-red-500/60 focus:border-red-500" : "border-white/10 focus:border-primary"} rounded-xl text-white text-sm focus:outline-none transition-all placeholder:text-zinc-600`} />
-                    {emailError && (
-                      <p className="text-red-400 text-[10px] font-bold uppercase tracking-wider mt-1">{emailError}</p>
-                    )}
-                  </div>
-                </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="subject" className="text-zinc-400 text-xs font-bold uppercase tracking-wider">Subject</label>
-                  <input type="text" id="subject" required value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="Collaboration opportunities"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:border-primary focus:outline-none transition-all placeholder:text-zinc-600" />
-                </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="message" className="text-zinc-400 text-xs font-bold uppercase tracking-wider">Message</label>
-                  <textarea id="message" required rows={4} value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Hi Manohar, I'd like to talk about..."
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:border-primary focus:outline-none transition-all resize-none placeholder:text-zinc-600" />
-                </div>
-                <button type="submit" disabled={formStatus === "submitting"}
-                  className="w-full inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-xl bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all hover:shadow-[0_0_24px_rgba(0,113,227,0.3)] disabled:opacity-50">
-                  {formStatus === "submitting" ? "Sending..." : <><Send className="w-4 h-4" /> Send Message</>}
-                </button>
-              </>
-            )}
-          </form>
         </motion.div>
 
         <motion.div className="flex flex-wrap justify-center gap-4 mb-10"
