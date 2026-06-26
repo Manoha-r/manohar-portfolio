@@ -82,11 +82,7 @@ const projects = [
 
 export function Projects() {
   const scrollRef = useSmoothScroll();
-  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
-
-  const toggleExpand = (id: string) => {
-    setExpandedCards(prev => ({ ...prev, [id]: !prev[id] }));
-  };
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
     <motion.div ref={scrollRef} className="relative w-full min-h-screen overflow-y-auto" variants={pageVariants} initial="initial" animate="animate" exit="exit">
@@ -102,7 +98,6 @@ export function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {projects.map((p, idx) => {
-            const isExpanded = !!expandedCards[p.id];
             return (
               <motion.div key={p.title}
                 layout
@@ -113,7 +108,7 @@ export function Projects() {
                   layout: { type: "spring", stiffness: 180, damping: 25 }
                 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className={`bg-black/45 backdrop-blur-md bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col transition-[border-color,box-shadow] duration-300 ${isExpanded ? "h-auto" : "h-[480px] md:h-[500px]"}`}>
+                className={`bg-black/45 backdrop-blur-md bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col transition-[border-color,box-shadow] duration-300 h-[480px] md:h-[500px]`}>
 
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">
@@ -154,60 +149,9 @@ export function Projects() {
                   </a>
                 </div>
 
-                <AnimatePresence initial={false}>
-                  {isExpanded && (
-                    <motion.div 
-                      initial={{ opacity: 0, height: 0 }} 
-                      animate={{ opacity: 1, height: "auto" }} 
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
-                      className="overflow-hidden mt-4 pt-4 border-t border-white/10">
-                      <div className="space-y-4">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1.5">The Problem</p>
-                            <p className="text-zinc-400 text-xs leading-relaxed">{p.problem}</p>
-                          </div>
-                          <div>
-                            <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1.5">The Solution</p>
-                            <p className="text-zinc-400 text-xs leading-relaxed">{p.solution}</p>
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-2">Key Features</p>
-                            <div className="space-y-1.5">
-                              {p.features.map((item, i) => (
-                                <div key={i} className="flex items-center gap-2 text-xs text-zinc-300">
-                                  <CheckCircle2 className="w-3 h-3 text-primary shrink-0" />{item}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                          <div>
-                            <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-2">What I Learned</p>
-                            <div className="space-y-1.5">
-                              {p.learned.map((item, i) => (
-                                <div key={i} className="flex items-center gap-2 text-xs text-zinc-300">
-                                  <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />{item}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <button onClick={() => toggleExpand(p.id)}
+                <button onClick={() => setSelectedProject(p)}
                   className="flex items-center justify-center gap-1.5 w-full py-2.5 mt-4 rounded-xl bg-black/20 hover:bg-black/40 text-zinc-400 hover:text-white text-xs font-bold transition-all border border-white/5">
-                  {isExpanded ? (
-                    <>Show Less <ChevronUp className="w-3.5 h-3.5" /></>
-                  ) : (
-                    <>Show Details & Learnings <ChevronDown className="w-3.5 h-3.5" /></>
-                  )}
+                  Show Details & Learnings <ChevronDown className="w-3.5 h-3.5" />
                 </button>
               </motion.div>
             );
@@ -222,6 +166,115 @@ export function Projects() {
           </a>
         </motion.div>
       </div>
+
+      {/* Modern Centered Modal Details Drawer */}
+      <AnimatePresence>
+        {selectedProject && (
+          <>
+            {/* Backdrop blur overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProject(null)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] cursor-pointer"
+            />
+
+            {/* Modal Box */}
+            <div className="fixed inset-0 flex items-center justify-center p-4 z-[101] pointer-events-none">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 30 }}
+                transition={{ type: "spring", stiffness: 300, damping: 28 }}
+                className="pointer-events-auto w-full max-w-2xl bg-[#090b10]/95 border border-white/10 rounded-3xl p-6 md:p-8 overflow-y-auto max-h-[85vh] shadow-[0_0_50px_rgba(0,113,227,0.22)] flex flex-col"
+              >
+                {/* Header */}
+                <div className="flex justify-between items-start mb-5">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 bg-black/40 rounded-2xl border border-white/10">
+                      {selectedProject.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-extrabold text-white">{selectedProject.title}</h3>
+                      <p className="text-primary font-semibold text-xs mt-0.5">{selectedProject.subtitle}</p>
+                    </div>
+                  </div>
+                  <span className={`text-[10px] font-bold px-3 py-1 rounded-full border ${selectedProject.badgeColor} shrink-0`}>
+                    {selectedProject.badge}
+                  </span>
+                </div>
+
+                {/* Tagline */}
+                <p className="text-zinc-300 font-medium text-xs md:text-sm italic mb-5 leading-relaxed border-l-2 border-primary pl-3">
+                  "{selectedProject.tagline}"
+                </p>
+
+                {/* Grid details */}
+                <div className="space-y-5 flex-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-primary mb-1.5">The Problem</p>
+                      <p className="text-zinc-400 text-xs leading-relaxed">{selectedProject.problem}</p>
+                    </div>
+                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-green-400 mb-1.5">The Solution</p>
+                      <p className="text-zinc-400 text-xs leading-relaxed">{selectedProject.solution}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-2">Key Features</p>
+                      <div className="space-y-1.5">
+                        {selectedProject.features.map((item, i) => (
+                          <div key={i} className="flex items-center gap-2 text-xs text-zinc-300">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-2">What I Learned</p>
+                      <div className="space-y-1.5">
+                        {selectedProject.learned.map((item, i) => (
+                          <div key={i} className="flex items-center gap-2 text-xs text-zinc-300">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Controls */}
+                <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                  <div className="flex items-center gap-2">
+                    {selectedProject.live && (
+                      <a href={selectedProject.live} target="_blank" rel="noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary hover:bg-primary/95 text-white text-xs font-semibold hover:shadow-[0_0_20px_rgba(0,113,227,0.4)] transition-all duration-300">
+                        <Globe className="w-3.5 h-3.5" /> Live Demo <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                    <a href={selectedProject.github} target="_blank" rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/18 text-white text-xs font-semibold border border-white/15 transition-all duration-300">
+                      <SiGithub className="w-3.5 h-3.5" /> GitHub <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="px-5 py-2.5 rounded-full bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-bold transition-all border border-red-500/15"
+                  >
+                    Close Details
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
