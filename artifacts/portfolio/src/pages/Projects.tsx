@@ -113,7 +113,7 @@ export function Projects() {
                   layout: { type: "spring", stiffness: 180, damping: 25 }
                 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className={`bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col transition-[border-color,box-shadow] duration-300 ${isExpanded ? "h-auto" : "h-[480px] md:h-[500px]"}`}>
+                className={`bg-black/45 backdrop-blur-md bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col transition-[border-color,box-shadow] duration-300 ${isExpanded ? "h-auto" : "h-[480px] md:h-[500px]"}`}>
 
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">
@@ -153,15 +153,6 @@ export function Projects() {
                     <SiGithub className="w-3.5 h-3.5" /> GitHub <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
-
-                <button onClick={() => toggleExpand(p.id)}
-                  className="flex items-center justify-center gap-1.5 w-full py-2.5 mt-2 rounded-xl bg-black/20 hover:bg-black/40 text-zinc-400 hover:text-white text-xs font-bold transition-all border border-white/5">
-                  {isExpanded ? (
-                    <>Show Less <ChevronUp className="w-3.5 h-3.5" /></>
-                  ) : (
-                    <>Show Details & Learnings <ChevronDown className="w-3.5 h-3.5" /></>
-                  )}
-                </button>
 
                 <AnimatePresence initial={false}>
                   {isExpanded && (
@@ -209,6 +200,15 @@ export function Projects() {
                     </motion.div>
                   )}
                 </AnimatePresence>
+
+                <button onClick={() => toggleExpand(p.id)}
+                  className="flex items-center justify-center gap-1.5 w-full py-2.5 mt-4 rounded-xl bg-black/20 hover:bg-black/40 text-zinc-400 hover:text-white text-xs font-bold transition-all border border-white/5">
+                  {isExpanded ? (
+                    <>Show Less <ChevronUp className="w-3.5 h-3.5" /></>
+                  ) : (
+                    <>Show Details & Learnings <ChevronDown className="w-3.5 h-3.5" /></>
+                  )}
+                </button>
               </motion.div>
             );
           })}
