@@ -113,7 +113,7 @@ export function Projects() {
                   layout: { type: "spring", stiffness: 180, damping: 25 }
                 }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className={`bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col transition-all duration-300 ${isExpanded ? "h-auto" : "h-[480px] md:h-[500px]"}`}>
+                className={`bg-gradient-to-br ${p.color} border ${p.border} ${p.hoverColor} rounded-3xl p-6 md:p-8 flex flex-col transition-[border-color,box-shadow] duration-300 ${isExpanded ? "h-auto" : "h-[480px] md:h-[500px]"}`}>
 
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">
@@ -166,10 +166,10 @@ export function Projects() {
                 <AnimatePresence initial={false}>
                   {isExpanded && (
                     <motion.div 
-                      initial={{ height: 0, opacity: 0 }} 
-                      animate={{ height: "auto", opacity: 1 }} 
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      initial={{ opacity: 0, height: 0 }} 
+                      animate={{ opacity: 1, height: "auto" }} 
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="overflow-hidden mt-4 pt-4 border-t border-white/10">
                       <div className="space-y-4">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
