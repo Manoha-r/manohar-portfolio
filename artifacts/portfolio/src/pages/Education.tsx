@@ -49,7 +49,7 @@ const educationCards = [
 ];
 
 const coursework = [
-  { name: "Data Structures & Algorithms", desc: "Arrays, trees, graphs, heaps, sorting — 100+ problems solved in Java." },
+  { name: "Data Structures & Algorithms", desc: "Arrays, trees, graphs, heaps, sorting — 150+ problems solved in Java." },
   { name: "Object-Oriented Programming", desc: "Encapsulation, inheritance, polymorphism in Java — core to all backend work." },
   { name: "Database Management Systems", desc: "SQL, normalization, transactions, indexing — applied with MongoDB and Mongoose." },
   { name: "Computer Networks", desc: "TCP/IP, HTTP, DNS — essential for REST API and web application development." },
@@ -59,7 +59,7 @@ const coursework = [
 
 const achievements = [
   { icon: <Trophy className="w-5 h-5 text-yellow-400" />, title: "CGPA: 8.52", desc: "Consistent academic performance at Mohan Babu University, B.Tech CSE." },
-  { icon: <Code2 className="w-5 h-5 text-blue-400" />, title: "100+ DSA Problems", desc: "LeetCode practice in Java — strong algorithmic thinking beyond the classroom." },
+  { icon: <Code2 className="w-5 h-5 text-blue-400" />, title: "150+ DSA Problems", desc: "LeetCode practice in Java — strong algorithmic thinking beyond the classroom." },
   { icon: <Star className="w-5 h-5 text-violet-400" />, title: "93% in Intermediate", desc: "Excellent academic record at Srinivasa Junior College, 2021–2023." },
   { icon: <Brain className="w-5 h-5 text-pink-400" />, title: "2 Full-Stack Projects", desc: "Built NextStep and Airbnb Clone end-to-end while studying full-time." },
 ];

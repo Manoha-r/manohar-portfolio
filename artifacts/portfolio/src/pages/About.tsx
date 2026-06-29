@@ -14,7 +14,7 @@ const pageVariants = {
 
 const highlights = [
   { icon: <Code2 className="w-5 h-5 text-primary" />, title: "Clean Code Advocate", desc: "Every line I write is intentional — readable, maintainable, and built to last." },
-  { icon: <Brain className="w-5 h-5 text-primary" />, title: "DSA & Problem Solver", desc: "100+ problems solved in Java on LeetCode. Strong in data structures, algorithms, and OOP." },
+  { icon: <Brain className="w-5 h-5 text-primary" />, title: "DSA & Problem Solver", desc: "150+ problems solved in Java on LeetCode. Strong in data structures, algorithms, and OOP." },
   { icon: <Rocket className="w-5 h-5 text-primary" />, title: "Fast Learner", desc: "I pick up new technologies fast and apply them in real projects immediately." },
   { icon: <Heart className="w-5 h-5 text-primary" />, title: "Passionate Builder", desc: "I build full-stack apps that solve real problems — from backend APIs to polished UIs." },
 ];
@@ -36,7 +36,7 @@ const quickFacts = [
   { label: "Batch", value: "2023 – 2027" },
   { label: "Stack", value: "MERN — MongoDB · Express · React · Node.js" },
   { label: "DSA Language", value: "Java" },
-  { label: "Problem Solving", value: "100+ LeetCode problems solved" },
+  { label: "Problem Solving", value: "150+ LeetCode problems solved" },
 ];
 
 const timeline = [

@@ -22,7 +22,7 @@ const keywords2 = ["Problem Solver", "Clean Code", "Backend Engineering", "API D
 const whatIDo = [
   { icon: <Layout className="w-5 h-5 text-primary" />, title: "Frontend Engineering", desc: "React, Tailwind CSS, Bootstrap and EJS. Pixel-perfect, responsive interfaces that feel fast and alive." },
   { icon: <Server className="w-5 h-5 text-primary" />, title: "Backend Development", desc: "Node.js + Express REST APIs with MVC architecture, Passport.js auth, and MongoDB data design." },
-  { icon: <Code2 className="w-5 h-5 text-primary" />, title: "DSA & Problem Solving", desc: "100+ LeetCode problems in Java. Algorithms and data structures applied to real engineering." },
+  { icon: <Code2 className="w-5 h-5 text-primary" />, title: "DSA & Problem Solving", desc: "150+ LeetCode problems in Java. Algorithms and data structures applied to real engineering." },
   { icon: <GitBranch className="w-5 h-5 text-primary" />, title: "Authentication Systems", desc: "Session-based Passport.js auth, route protection, and secure user management end-to-end." },
   { icon: <Globe className="w-5 h-5 text-primary" />, title: "Database Design", desc: "MongoDB + Mongoose schemas, validation, relationships, and efficient document query design." },
   { icon: <Layers className="w-5 h-5 text-primary" />, title: "Software Architecture", desc: "MVC patterns, component-based React, clean separation of concerns, maintainable codebases." },
@@ -30,7 +30,7 @@ const whatIDo = [
 
 const stats = [
   { value: "2+", label: "Full Stack Projects" },
-  { value: "100+", label: "DSA Problems Solved" },
+  { value: "150+", label: "DSA Problems Solved" },
   { value: "8.52", label: "CGPA" },
 ];
 
@@ -180,7 +180,7 @@ export function Hero() {
 
       {/* ——— STATS ——— */}
       <section className="py-12 px-4 border-t border-white/5 bg-black/20">
-        <div className="max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
           {stats.map((s, i) => (
             <motion.div key={s.label} className="text-center p-6 rounded-2xl bg-primary/5 border border-primary/15"
               initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.15, duration: 0.8 }}>

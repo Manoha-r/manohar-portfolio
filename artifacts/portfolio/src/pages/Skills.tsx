@@ -19,7 +19,7 @@ const skillCategories = [
     label: "Languages", icon: <Terminal className="w-4 h-4" />,
     color: "from-blue-600/15 to-blue-900/10", border: "border-blue-500/25", accent: "text-blue-400",
     skills: [
-      { name: "Java", logo: <FaJava className="text-3xl text-orange-500" />, tag: "OOP · DSA", desc: "Primary language for data structures, algorithms, and OOP. Used to solve 100+ LeetCode problems." },
+      { name: "Java", logo: <FaJava className="text-3xl text-orange-500" />, tag: "OOP · DSA", desc: "Primary language for data structures, algorithms, and OOP. Used to solve 150+ LeetCode problems." },
       { name: "SQL", logo: <Database className="w-7 h-7 text-sky-400" />, tag: "Relational DB", desc: "Relational queries, schema design, joins, and data manipulation for structured data management." },
       { name: "JavaScript", logo: <SiJavascript className="text-3xl text-yellow-400" />, tag: "ES6+", desc: "Core language for full-stack development — React frontend and Node.js backend projects." },
     ],
@@ -28,7 +28,7 @@ const skillCategories = [
     label: "Core Concepts", icon: <Cpu className="w-4 h-4" />,
     color: "from-violet-600/15 to-violet-900/10", border: "border-violet-500/25", accent: "text-violet-400",
     skills: [
-      { name: "Data Structures", logo: <Layers className="w-7 h-7 text-violet-400" />, tag: "Arrays · Trees · Graphs", desc: "Arrays, linked lists, stacks, queues, trees, heaps, graphs — applied in 100+ problems." },
+      { name: "Data Structures", logo: <Layers className="w-7 h-7 text-violet-400" />, tag: "Arrays · Trees · Graphs", desc: "Arrays, linked lists, stacks, queues, trees, heaps, graphs — applied in 150+ problems." },
       { name: "Algorithms", logo: <GitBranch className="w-7 h-7 text-violet-300" />, tag: "Sorting · DP · Greedy", desc: "Sorting, searching, dynamic programming, greedy, and divide-and-conquer in Java." },
       { name: "OOP", logo: <Code2 className="w-7 h-7 text-violet-400" />, tag: "Java", desc: "Encapsulation, inheritance, polymorphism, and abstraction — core to all Java development." },
       { name: "Time & Space Complexity", logo: <BookOpen className="w-7 h-7 text-violet-300" />, tag: "Big-O Analysis", desc: "Analyzing algorithmic efficiency — Big-O notation, worst/average/best case reasoning." },
