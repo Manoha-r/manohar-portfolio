@@ -125,7 +125,7 @@ export function Navigation() {
         {/* Backdrop Background Shape (Only this expands smoothly!) */}
         <div className={cn(
           "absolute transition-all duration-500 ease-out hidden md:block",
-          isScrolled 
+          !isScrolled 
             ? "top-0 left-0 w-full h-full rounded-none bg-black/85 border-b border-white/10 shadow-lg" 
             : "top-3 h-10 w-[550px] rounded-full bg-black/60 backdrop-blur-md border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
         )} />
