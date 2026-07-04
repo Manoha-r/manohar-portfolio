@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useSmoothScroll } from "../hooks/useSmoothScroll";
-import { Linkedin, Mail, Clock, MapPin, Phone, CheckCircle2 } from "lucide-react";
+import { Linkedin, Mail, Clock, MapPin, CheckCircle2 } from "lucide-react";
 import { SiGithub, SiLeetcode } from "react-icons/si";
 import { TextReveal } from "../components/TextReveal";
 
@@ -25,7 +25,6 @@ const pageVariants = {
 
 const socials = [
   { label: "Email", handle: "manoharnaidubugatha@gmail.com", href: "mailto:manoharnaidubugatha@gmail.com", icon: <Mail className="w-5 h-5" />, color: "hover:border-red-500/50", iconBg: "bg-red-500/10 text-red-400", desc: "Best way to reach me." },
-  { label: "Phone", handle: "+91 7207228389", href: "tel:+917207228389", icon: <Phone className="w-5 h-5" />, color: "hover:border-green-500/50", iconBg: "bg-green-500/10 text-green-400", desc: "Available during IST hours." },
   { label: "GitHub", handle: "@Manoha-r", href: "https://github.com/Manoha-r", icon: <SiGithub className="w-5 h-5" />, color: "hover:border-white/40", iconBg: "bg-white/10 text-white", desc: "Browse my projects and code." },
   { label: "LinkedIn", handle: "manoharnaidubugatha", href: "https://www.linkedin.com/in/manoharnaidubugatha/", icon: <Linkedin className="w-5 h-5" />, color: "hover:border-[#0077b5]/50", iconBg: "bg-blue-600/15 text-blue-400", desc: "Professional profile and network." },
   { label: "LeetCode", handle: "myselfManu29", href: "https://leetcode.com/u/myselfManu29/", icon: <SiLeetcode className="w-5 h-5" />, color: "hover:border-[#ffa116]/50", iconBg: "bg-yellow-500/10 text-yellow-400", desc: "150+ DSA problems solved." },
